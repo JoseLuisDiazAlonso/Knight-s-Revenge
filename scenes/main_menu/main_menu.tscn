@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs2h4gu3536yj"]
+
+[ext_resource type="Shader" path="res://assets/shaders/light_rays.gdshader" id="1_3d1jd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7ifl"]
+shader = ExtResource("1_3d1jd")
+shader_parameter/ray_intensity = 0.8
+shader_parameter/ray_speed = 0.3
+shader_parameter/num_rays = 5
+shader_parameter/ray_color = Color(1, 0, 0.6, 0.3)
+shader_parameter/ray_width = 0.1
+
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DramaticLight" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_j7ifl")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="TitleContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Subtitle" type="Label" parent="TitleContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MenuPanel" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuPanel"]
+layout_mode = 2
+
+[node name="MenuButtons" type="VBoxContainer" parent="MenuPanel/PanelContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MenuPanel/PanelContainer/MenuButtons"]
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="MenuPanel/PanelContainer/MenuButtons"]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
